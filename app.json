@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "barcode-scanner",
-    "slug": "barcode-scanner",
+    "name": "file-upload",
+    "slug": "file-upload",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
