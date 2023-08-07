@@ -1,14 +1,12 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   View, Text, TouchableOpacity,
-  ScrollView, StatusBar, Image, Alert, ActivityIndicator
+  ScrollView, StatusBar, Image
 } from 'react-native';
 import { TailwindProvider } from "tailwindcss-react-native";
 import * as ImagePicker from 'expo-image-picker';
-import {
-  Ionicons
-} from "@expo/vector-icons";
+
 const App = () => {
   const [CardImage, SetCardImage] = useState(null);
 
@@ -30,16 +28,7 @@ const App = () => {
       <View className="flex-1 bg-[#ffffff]">
         <StatusBar translucent backgroundColor="rgba(0,0,0,0)" />
         <View className="w-full h-10 bg-white" />
-        <View className="flex-row space-x-2 ">
-          <View className="flex-row">
-            <TouchableOpacity >
-              <View>
-                <Text className="p-2 text-base font-bold">Image Picker</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View className="flex-grow"></View>
-        </View>
+       
         <View className="justify-center p-2 mt-3 ">
                 <View className="mt-8 items-center">
                     <Text className="text-[#000000] font-bold mx-5 text-[15px]">
@@ -53,7 +42,23 @@ const App = () => {
 
         </View>
 
-
+        <View className="rounded-lg  mx-1  border-r-2 border-l-2 border-t-2 border-b-2 border-[#eeeeee] justify-center p-2">
+                    <ScrollView
+                        showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 300 }}>
+                        <View className="flex-1 p-4 justify-center items-center">
+                            <View className="flex flex-row space-x-3 mb-7">
+                                <TouchableOpacity className="py-3 px-3 w-40 items-center bg-black rounded-xl " onPress={() => handleImagePicker()}>
+                                    <Text className="text-white font-semibold">Upload Image</Text>
+                                </TouchableOpacity>
+                            </View>
+                            {CardImage && <Image source={{ uri: CardImage }} style={{
+                                width: 350,
+                                height: 230,
+                                resizeMode: 'cover',
+                            }} />}
+                        </View>
+                    </ScrollView>
+                </View>
       </View>
     </TailwindProvider>
 
